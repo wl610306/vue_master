@@ -37,7 +37,7 @@ module.exports = {
     //         remPrecision: 2 // rem的小数点后位数
     //       })
   },
-
+ 
     // 除了上述使用 chainWebpack 来改变 webpack 内部配置外，我们还可以使用 configureWebpack 来进行修改，
     // 两者的不同点在于 chainWebpack 是链式修改，而 configureWebpack 更倾向于整体替换和修改。示例代码如下：
     // configureWebpack 可以直接是一个对象，也可以是一个函数
