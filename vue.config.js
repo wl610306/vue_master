@@ -17,14 +17,14 @@ module.exports = {
   chainWebpack: config => {
     // 修复HMR开启热更新
     config.resolve.symlinks(true);
-    config.module
-            .rule('images')
-            .use('url-loader')
-            .tap(options =>
-                merge(options, {
-                  limit: 5120,
-                })
-            )
+    // config.module
+    //   .rule('images')
+    //   .use('url-loader')
+    //   .tap(options => {
+    //     merge(options, {
+    //       limit: 5120,
+    //     })
+    //   })
     // config.module
     //   .rule('css')
     //     .test(/\.css$/)
@@ -37,17 +37,17 @@ module.exports = {
     //         remPrecision: 2 // rem的小数点后位数
     //       })
   },
- 
-    // 除了上述使用 chainWebpack 来改变 webpack 内部配置外，我们还可以使用 configureWebpack 来进行修改，
-    // 两者的不同点在于 chainWebpack 是链式修改，而 configureWebpack 更倾向于整体替换和修改。示例代码如下：
-    // configureWebpack 可以直接是一个对象，也可以是一个函数
-    // configureWebpack: config =&gt; {
-    //     // config.plugins = []; // 这样会直接将 plugins 置空
-    //     // 使用 return 一个对象会通过 webpack-merge 进行合并，plugins 不会置空
-    //     return {
-    //         plugins: []
-    //     }
-    // },
+
+  // 除了上述使用 chainWebpack 来改变 webpack 内部配置外，我们还可以使用 configureWebpack 来进行修改，
+  // 两者的不同点在于 chainWebpack 是链式修改，而 configureWebpack 更倾向于整体替换和修改。示例代码如下：
+  // configureWebpack 可以直接是一个对象，也可以是一个函数
+  // configureWebpack: config =&gt; {
+  //     // config.plugins = []; // 这样会直接将 plugins 置空
+  //     // 使用 return 一个对象会通过 webpack-merge 进行合并，plugins 不会置空
+  //     return {
+  //         plugins: []
+  //     }
+  // },
   lintOnSave: true, // 是否在保存的时候检查
   productionSourceMap: true, // 生产环境是否生成 sourceMap 文件
   css: {
@@ -60,7 +60,7 @@ module.exports = {
             autoprefixer: true, //添加浏览器前缀
             rootValue: 32, // 换算的基数 设计稿750宽度的1/10
             // selectorBlackList: ['weui', 'mu'], // 忽略转换正则匹配项
-            selectorBlackList:['.css'], // 过滤掉.css开头的class，不进行rem转换
+            selectorBlackList: ['.css'], // 过滤掉.css开头的class，不进行rem转换
             propList: ['*'] // 需要做转化处理的属性，如`hight`、`width`、`margin`等，`*`表示全部
           }),
         ]
@@ -74,7 +74,7 @@ module.exports = {
     host: 'localhost', // 指定使用一个 host。默认是 localhost
     liveReload: false,
     port: 8080, // 端口地址
-    https: false,// 使用https提供服务
+    https: false, // 使用https提供服务
     hotOnly: false,
     open: true, //配置自动启动浏览器
     proxy: {
