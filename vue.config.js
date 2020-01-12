@@ -15,8 +15,19 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    // 修复HMR开启热更新
-    config.resolve.symlinks(true);
+    // // 修复HMR开启热更新
+    // config.resolve.symlinks(true)
+    //关闭警告  禁用fork-ts-checker
+    config.plugins.delete("fork-ts-checker") 
+    // //关闭热重载
+    // config.module
+    // .rule('vue')
+    // .use('vue-loader')
+    // .loader('vue-loader')
+    // .tap(options => {
+    //     options.hotReload = false;
+    //     return options
+    // })
     // config.module
     //   .rule('images')
     //   .use('url-loader')
@@ -71,11 +82,15 @@ module.exports = {
   //反向代理
   devServer: {
     // 环境配置
-    host: 'localhost', // 指定使用一个 host。默认是 localhost
-    liveReload: false,
-    port: 8080, // 端口地址
-    https: false, // 使用https提供服务
-    hotOnly: false,
+    // host: 'localhost', // 指定使用一个 host。默认是 localhost
+    // 整个页面刷新
+    // liveReload: false,
+    // port: 8080, // 端口地址
+    // https: false, // 使用https提供服务
+    // 热重载 
+    // hotOnly: true,
+    // hot: false,
+    // inline: true,
     open: true, //配置自动启动浏览器
     proxy: {
       // 配置多个代理(配置一个 proxy: 'http://localhost:4000' )
